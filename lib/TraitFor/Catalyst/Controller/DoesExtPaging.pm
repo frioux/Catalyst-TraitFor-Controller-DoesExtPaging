@@ -1,4 +1,4 @@
-package Catalyst::Controller::Role::DoesExtPaging;
+package TraitFor::Catalyst::Controller::DoesExtPaging;
 
 use Moose::Role;
 requires 'page_size';
