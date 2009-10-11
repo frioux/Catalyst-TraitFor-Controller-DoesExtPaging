@@ -36,6 +36,9 @@ sub ext_parcel {
 
   use Moose;
   BEGIN { extends 'Catalyst::Controller' }
+
+  # a single with would be better, but we can't do that
+  # see: http://rt.cpan.org/Public/Bug/Display.html?id=46347
   with 'Catalyst::Controller::Role::DBIC::DoesPaging';
   with 'Catalyst::Controller::Role::DoesExtPaging';
 
@@ -100,7 +103,7 @@ This module is mostly for sending L<DBIx::Class> paginated data to ExtJS based j
 Returns a structure like the following from the ResultSet:
 
   {
-     data  => [@results],
+     data  => \@results,
      total => $count_before_pagination
   }
 
@@ -134,6 +137,11 @@ Returns a structure like the following:
 =head1 SEE ALSO
 
 L<Catalyst::Controller::Role::DBIC::DoesPaging>.
+
+=head1 THANKS
+
+Thanks to Micro Technology Services, Inc. for sponsoring initial development of
+this module.
 
 =cut
 
