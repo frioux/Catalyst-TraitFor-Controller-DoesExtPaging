@@ -1,4 +1,4 @@
-package TraitFor::Catalyst::Controller::DoesExtPaging;
+package Catalyst::TraitFor::Controller::DoesExtPaging;
 
 use Moose::Role;
 requires 'page_size';
@@ -39,8 +39,8 @@ sub ext_parcel {
 
   # a single with would be better, but we can't do that
   # see: http://rt.cpan.org/Public/Bug/Display.html?id=46347
-  with 'Catalyst::Controller::Role::DBIC::DoesPaging';
-  with 'Catalyst::Controller::Role::DoesExtPaging';
+  with 'Catalyst::TraitFor::Controller::DBIC::DoesPaging';
+  with 'Catalyst::TraitFor::Controller::DoesExtPaging';
 
   sub people :Local {
      # ...
