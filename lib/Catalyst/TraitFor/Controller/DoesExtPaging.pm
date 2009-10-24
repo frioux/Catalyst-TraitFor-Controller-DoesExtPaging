@@ -1,7 +1,8 @@
 package Catalyst::TraitFor::Controller::DoesExtPaging;
 
 use Moose::Role;
-requires 'page_size';
+
+# ABSTRACT: Paginate DBIx::Class::ResultSets for ExtJS consumption
 
 sub ext_paginate {
    my $self      = shift;
