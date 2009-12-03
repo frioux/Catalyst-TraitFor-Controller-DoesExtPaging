@@ -4,6 +4,18 @@ use Moose::Role;
 
 # ABSTRACT: Paginate DBIx::Class::ResultSets for ExtJS consumption
 
+has root => (
+   is      => 'ro',
+   isa     => 'Str',
+   default => 'data',
+);
+
+has total_property => (
+   is      => 'ro',
+   isa     => 'Str',
+   default => 'total',
+);
+
 sub ext_paginate {
    my $self      = shift;
    my $resultset = shift;
@@ -22,8 +34,8 @@ sub ext_parcel {
    my $total  = shift || scalar @{$values};
 
    return {
-      data  => $values,
-      total => $total,
+      $self->root           => $values,
+      $self->total_property => $total,
    };
 }
 
@@ -134,6 +146,20 @@ Returns a structure like the following:
   list  - a list of anything you want to be in the data structure
   total - whatever you want to say the total is.  Defaults to size of
           the list passed in.
+
+=head1 CONFIG VARIABLES
+
+=over 2
+
+=item root
+
+Sets the name of the root for the data structure.  Defaults to data.
+
+=item total_property
+
+Sets the name for the total property for the data structure.  Defaults to total.
+
+=back
 
 =head1 SEE ALSO
 

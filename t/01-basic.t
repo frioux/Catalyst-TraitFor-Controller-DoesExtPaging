@@ -17,7 +17,7 @@ $schema->populate(Stations => [
    [qw{1  awesome bitchin   }],
    [qw{2  cool    bad       }],
    [qw{3  tubular righeous  }],
-   [qw{4  rad     totally   }],
+   [qw{4  rad     totalAmountly   }],
    [qw{5  sweet   beesknees }],
    [qw{6  gnarly  killer    }],
    [qw{7  hot     legit     }],
@@ -29,7 +29,7 @@ $schema->populate(Stations => [
    my $data = from_json(get('/test_paginate?limit=3'));
    cmp_deeply $data,
 	      {
-		 total => 9,
+		 totalAmount => 9,
 		 data=> set({
 		    id => 1,
 		    bill => 'awesome'
@@ -48,7 +48,7 @@ $schema->populate(Stations => [
    my $data = from_json(get('/test_paginate2?limit=3'));
    cmp_deeply $data,
 	      {
-		 total => 9,
+		 totalAmount => 9,
 		 data=> set({
 		    id => 1,
 		 },{
@@ -64,7 +64,7 @@ $schema->populate(Stations => [
    my $data = from_json(get('/test_parcel?limit=3'));
    cmp_deeply $data,
 	      {
-		 total => 3,
+		 totalAmount => 3,
 		 data=> set({
 		    id => 1,
 		 },{
@@ -73,14 +73,14 @@ $schema->populate(Stations => [
 		    id => 3,
 		 })
 	      },
-	      'ext_parcel correctly builds structure with default total';
+	      'ext_parcel correctly builds structure with default totalAmount';
 }
 
 {
    my $data = from_json(get('/test_parcel2?limit=3'));
    cmp_deeply $data,
 	      {
-		 total => 1_000_000,
+		 totalAmount => 1_000_000,
 		 data=> set({
 		    id => 1,
 		 },{

@@ -14,6 +14,9 @@ __PACKAGE__->config(
    'View::JSON' => {
        expose_stash    => 'js',
     },
+    'Controller::Root' => {
+      total_property => 'totalAmount',
+    },
 );
 
 # Start the application
