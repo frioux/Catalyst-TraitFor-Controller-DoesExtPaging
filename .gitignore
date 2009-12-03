@@ -2,4 +2,4 @@
 Makefile
 *.gz
 .build
-TraitFor-Catalyst-Controller-DoesExtPaging-*
+Catalyst-TraitFor-Controller-DoesExtPaging-*
