@@ -1,6 +1,7 @@
 package Catalyst::TraitFor::Controller::DoesExtPaging;
 
 use Moose::Role;
+use Web::Util::ExtPaging ':all' => { -prefix => '_' };
 
 # ABSTRACT: Paginate DBIx::Class::ResultSets for ExtJS consumption
 
@@ -18,25 +19,19 @@ has total_property => (
 
 sub ext_paginate {
    my $self      = shift;
-   my $resultset = shift;
-   my $method    = shift || 'TO_JSON';
-   return $self->ext_parcel(
-      [map $_->$method, $resultset->all],
-      $resultset->is_paged
-         ? ($resultset->pager->total_entries)
-         : (),
-   );
+   return _ext_paginate(@_, {
+      root => $self->root,
+      total_property => $self->total_property,
+   });
 }
 
 sub ext_parcel {
    my $self   = shift;
-   my $values = shift;
-   my $total  = shift || scalar @{$values};
 
-   return {
-      $self->root           => $values,
-      $self->total_property => $total,
-   };
+   return _ext_parcel(@_, {
+      root => $self->root,
+      total_property => $self->total_property,
+   });
 }
 
 1;

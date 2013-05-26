@@ -1,5 +1,7 @@
 Revision history for Catalyst-TraitFor-Controller-DoesExtPaging
 
+       - Use Web::Util::ExtPaging
+
 0.093370 Thu Dec 03 12:54:00 CDT 2009
        - Fix a dep
 
