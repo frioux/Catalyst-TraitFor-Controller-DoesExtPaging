@@ -1,11 +1,12 @@
-Revision history for Catalyst-TraitFor-Controller-DoesExtPaging
+Revision history for {{$dist->name}}
 
-       - Stop using stupid autoversions
-       - Use Web::Util::ExtPaging
+{{$NEXT}}
+ - Stop using stupid autoversions
+ - Use Web::Util::ExtPaging
 
 0.093370 Thu Dec 03 12:54:00 CDT 2009
-       - Fix a dep
+ - Fix a dep
 
 0.093360 Tue Dec 01 09:51:00 CDT 2009
-       - Initial Release
+ - Initial Release
 
