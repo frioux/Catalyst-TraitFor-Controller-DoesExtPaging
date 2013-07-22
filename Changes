@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ - Fix broken dep on non-extant version of SQL::Translator
 
 1.000000  2013-05-25 21:33:20 CST6CDT
  - Stop using stupid autoversions
